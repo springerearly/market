@@ -13,6 +13,14 @@
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     {% endblock %}
 </head>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 <body>
 {% include 'includes/navbar.html' %}
 {% block pageheader %}
