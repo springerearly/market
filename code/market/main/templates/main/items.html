@@ -6,9 +6,40 @@
     <h1>Items</h1>
 {% endblock %}
 {% block content %}
-    <ul>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for item in items %}
-        <li>{{ item.name }}: {{ item.price }} $</li>
+
+            <tr>
+                <th scope="row">{{ item.pk }}</th>
+                <td>{{ item.name }}</td>
+                <td>
+                    <img alt="image" style="width:64px" src="{{ item.image_url }}">
+                </td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#Modal-MoreInfo{{ item.pk }}">
+                        More Info
+                    </button>
+
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#Modal-PurchaseConfirm{{ item.pk }}">
+                        Purchase confirm
+                    </button>
+                    {% include 'includes/items_modals.html' %}
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
 {% endblock %}
