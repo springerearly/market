@@ -47,7 +47,7 @@ def logoutpage(request):
     logout(request=request)
     messages.success(
         request=request,
-        message=f'You have have been logged out')
+        message=f'You have been logged out')
     return redirect('home')
 
 
