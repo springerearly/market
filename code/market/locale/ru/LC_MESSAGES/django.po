@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 17:53+0700\n"
+"POT-Creation-Date: 2023-11-06 18:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,8 @@ msgstr "Продается"
 msgid "_not_for_sale"
 msgstr "Не продается"
 
-#: .\main\templates\main\login.html:5 .\templates\includes\navbar.html:17
+#: .\main\templates\main\login.html:5 .\main\templates\main\register.html:42
+#: .\templates\includes\navbar.html:17
 msgid "Login"
 msgstr "Войти"
 
@@ -99,12 +100,16 @@ msgid "Please sign in"
 msgstr "Пожалуйста, авторизуйтесь"
 
 #: .\main\templates\main\login.html:18 .\main\templates\main\login.html:20
+#: .\main\templates\main\register.html:20
+#: .\main\templates\main\register.html:22
 #, fuzzy
 #| msgid "Name"
 msgid "username"
 msgstr "Имя пользователя"
 
 #: .\main\templates\main\login.html:23 .\main\templates\main\login.html:25
+#: .\main\templates\main\register.html:27
+#: .\main\templates\main\register.html:29
 msgid "Password"
 msgstr "Пароль"
 
@@ -112,13 +117,40 @@ msgstr "Пароль"
 msgid "Dont Have an account?"
 msgstr "Еще нет аккаунта?"
 
-#: .\main\templates\main\login.html:29 .\templates\includes\navbar.html:18
+#: .\main\templates\main\login.html:29 .\main\templates\main\register.html:4
+#: .\templates\includes\navbar.html:18
 msgid "register"
 msgstr "Регистрация"
 
 #: .\main\templates\main\login.html:31
 msgid "Sign in"
 msgstr "Авторизоваться"
+
+#: .\main\templates\main\register.html:15
+msgid "Please Create your Account"
+msgstr "Пожалуйста, создайте новый аккаунт"
+
+#: .\main\templates\main\register.html:34
+#: .\main\templates\main\register.html:36
+msgid "Password Confirmation"
+msgstr "Подтверждение пароля"
+
+#: .\main\templates\main\register.html:41
+msgid "_already_have_an_account_"
+msgstr "Уже есть аккаунт?"
+
+#: .\main\templates\main\register.html:44
+msgid "_cr_acc_"
+msgstr "Создать аккаунт"
+
+#: .\templates\includes\items_modals.html:9
+#: .\templates\includes\items_modals.html:15
+#: .\templates\includes\items_modals.html:27
+#: .\templates\includes\items_modals.html:45
+#: .\templates\includes\items_modals.html:57
+#: .\templates\includes\items_modals.html:83
+msgid "Close"
+msgstr "Закрыть"
 
 #: .\templates\includes\items_modals.html:26
 msgid "Are you sure you want to buy"
@@ -131,10 +163,6 @@ msgstr "Нажав «Купить», вы купите этот товар в м
 #: .\templates\includes\items_modals.html:41
 msgid "Purchase"
 msgstr "Купить"
-
-#: .\templates\includes\items_modals.html:45
-msgid "Close"
-msgstr "Закрыть"
 
 #: .\templates\includes\items_modals.html:56
 msgid "Are you sure you want to sale"
