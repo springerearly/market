@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 17:33+0700\n"
+"POT-Creation-Date: 2023-11-06 17:53+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,6 +119,42 @@ msgstr "Регистрация"
 #: .\main\templates\main\login.html:31
 msgid "Sign in"
 msgstr "Авторизоваться"
+
+#: .\templates\includes\items_modals.html:26
+msgid "Are you sure you want to buy"
+msgstr "Вы уверены, что хотите купить"
+
+#: .\templates\includes\items_modals.html:37
+msgid "By clicking Purchase, you will buy this item from the market"
+msgstr "Нажав «Купить», вы купите этот товар в магазине"
+
+#: .\templates\includes\items_modals.html:41
+msgid "Purchase"
+msgstr "Купить"
+
+#: .\templates\includes\items_modals.html:45
+msgid "Close"
+msgstr "Закрыть"
+
+#: .\templates\includes\items_modals.html:56
+msgid "Are you sure you want to sale"
+msgstr "Вы уверены, что хотите продать"
+
+#: .\templates\includes\items_modals.html:63
+msgid "costs"
+msgstr "стоит"
+
+#: .\templates\includes\items_modals.html:67
+msgid "By clicking Confirm, you will put this item up for sale in the market"
+msgstr "Нажав «Подтвердить», вы выставите этот товар на продажу в магазине"
+
+#: .\templates\includes\items_modals.html:76
+msgid "Description"
+msgstr "Описание"
+
+#: .\templates\includes\items_modals.html:79
+msgid "_confirm_"
+msgstr "Подтвердить"
 
 #: .\templates\includes\navbar.html:10
 msgid "Home"
