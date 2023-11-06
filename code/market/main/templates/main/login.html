@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title_block %}
-    Login
+    {% translate "Login" %}
 {% endblock %}
 
 {% block content %}
@@ -10,24 +11,24 @@
         {% csrf_token %}
         <img class="mb-4" style="width:20rem" src="https://papik.pro/grafic/uploads/posts/2023-04/1681598328_papik-pro-p-logotip-vash-vektor-33.png" alt="">
         <h1 class="h3 mb-3 font-weight-normal">
-            Please sign in
+            {% translate "Please sign in" %}
         </h1>
         <br>
         <label for="inputUsername" class="sr-only">
-            User Name
+            {% translate "username" %}
         </label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="User Name" name="username" required autofocus>
+        <input type="text" id="inputUsername" class="form-control" placeholder="{% translate 'username' %}" name="username" required autofocus>
         <br>
         <label for="inputPassword" class="sr-only">
-            Password
+            {% translate "Password" %}
         </label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="{% translate 'Password' %}" name="password" required>
         <br>
         <div class="checkbox mb-3">
-            <h6>Dont Have an account? </h6>
-            <a class="btn btn-sm btn-secondary" href="{% url 'register' %}">Register</a>
+            <h6>{% translate "Dont Have an account?" %} </h6>
+            <a class="btn btn-sm btn-secondary" href="{% url 'register' %}">{% translate "register" %}</a>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">{% translate "Sign in" %}</button>
     </form>
 </body>
 
