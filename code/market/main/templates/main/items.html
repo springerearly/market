@@ -3,7 +3,11 @@
     Market - Items
 {% endblock %}
 {% block pageheader %}
-    <h1>Items</h1>
+    {% if items_page %}
+        <h1>Items</h1>
+    {% else %}
+        <h1>My Items</h1>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <table class="table table-hover">
@@ -13,7 +17,15 @@
             <th scope="col">Name</th>
             <th scope="col">Image</th>
             <th scope="col">Price</th>
+            {% if items_page %}
+                <th scope="col">Seller</th>
+            {% endif %}
             <th scope="col">Options</th>
+            {% if not items_page %}
+                <th scope="col">Status</th>
+            {% endif %}
+
+
         </tr>
         </thead>
         <tbody>
@@ -26,18 +38,30 @@
                     <img alt="image" style="width:64px" src="{{ item.image_url }}">
                 </td>
                 <td>{{ item.price }}</td>
+                {% if items_page %}
+                    <td>{{ item.owner.username }}</td>
+                {% endif %}
                 <td>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#Modal-MoreInfo{{ item.pk }}">
                         More Info
                     </button>
-
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#Modal-PurchaseConfirm{{ item.pk }}">
-                        Purchase confirm
-                    </button>
+                    {% if items_page %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#Modal-PurchaseConfirm{{ item.pk }}">
+                            Confirm purchase
+                        </button>
+                    {% else %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#Modal-PutupForSale{{ item.pk }}">
+                            Put up for sale
+                        </button>
+                    {% endif %}
                     {% include 'includes/items_modals.html' %}
                 </td>
+                {% if not items_page %}
+                    <td>{% if item.is_for_sale %}For sale {% else %} Not for sale{% endif %}</td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>

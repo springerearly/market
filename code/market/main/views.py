@@ -13,20 +13,46 @@ def homepage(request):
 
 def itemspage(request):
     if request.method == 'GET':
-        items = Item.objects.filter(owner__item=None)
+        items = Item.objects.exclude(owner__username=request.user.username).filter(is_for_sale=True)
         context = {
-            'items': items
+            'items': items,
+            'items_page': True,
+
         }
         return render(request=request, template_name='main/items.html', context=context)
     if request.method == 'POST':
-        purchased_item = request.POST.get('purchased-item')
-        if purchased_item:
-            purchased_item_object = Item.objects.get(name=purchased_item)
+        purchased_item_id = request.POST.get('purchased-item-id')
+        if purchased_item_id:
+            purchased_item_object = Item.objects.get(pk=purchased_item_id)
             purchased_item_object.owner = request.user
+            purchased_item_object.is_for_sale = False
             purchased_item_object.save()
             messages.success(request=request,
                              message=f'Congratulations! You just bought {purchased_item_object} for {purchased_item_object.price}')
         return redirect('items')
+
+
+def my_itemspage(request):
+    if request.method == 'GET':
+        items = Item.objects.filter(owner__username=request.user.username)
+        context = {
+            'items': items,
+            'items_page': False,
+        }
+        return render(request=request, template_name='main/items.html', context=context)
+    if request.method == 'POST':
+        item_for_sale_id = request.POST.get('item-for-sale-id')
+        new_price = request.POST.get('new-price')
+        new_description = request.POST.get('new-description')
+        if item_for_sale_id and new_price and new_description:
+            item_for_sale_object = Item.objects.get(pk=item_for_sale_id)
+            item_for_sale_object.price = new_price
+            item_for_sale_object.description = new_description
+            item_for_sale_object.is_for_sale = True
+            item_for_sale_object.save()
+            messages.success(request=request,
+                             message=f'Congratulations! You just bought {item_for_sale_object.name} for {item_for_sale_object.price}')
+        return redirect('my-items')
 
 
 def loginpage(request):
@@ -68,5 +94,6 @@ def registerpage(request):
                 message=f'You have registered your account successfully! Logged in as {username}')
             return redirect('home')
         else:
-            messages.error(request=request, message=f'Account registration was unsuccessfull with errors: {form.errors}')
+            messages.error(request=request,
+                           message=form.errors)
             return redirect('register')

@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CharField, IntegerField, ForeignKey
+from django.db.models import CharField, IntegerField, ForeignKey, BooleanField
 from django.contrib.auth.models import User
 
 
@@ -11,6 +11,7 @@ class Item(models.Model):
     price = IntegerField()
     description = CharField(max_length=1024)
     image_url = CharField(max_length=512)
+    is_for_sale = BooleanField(default=True)
 
     def __str__(self):
         return self.name
