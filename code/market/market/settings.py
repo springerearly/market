@@ -111,7 +111,6 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
 
-print("Locales: ", LOCALE_PATHS)
 
 LANGUAGE_CODE = 'ru'
 
