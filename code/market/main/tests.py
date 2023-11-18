@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.messages.storage.base import Message
 
 
 class UserRegisterTest(TestCase):
@@ -24,7 +25,7 @@ class UserRegisterTest(TestCase):
 
     def test_succ_register(self):
         response = self.client.get(
-            #'/register/',
+            # '/register/',
             reverse('register')
         )
 
@@ -54,6 +55,6 @@ class UserRegisterTest(TestCase):
         )
 
         self.assertEqual(302, response.status_code)
-        msgs: list[messages.storage.base.Message] = list(messages.get_messages(response.wsgi_request))
+        msgs: list[Message] = list(messages.get_messages(response.wsgi_request))
         error_msg = list(filter(lambda item: item.level_tag == "error", msgs))[0]
         self.assertIn("password2", error_msg.message)

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -28,7 +28,9 @@ def itemspage(request):
             purchased_item_object.is_for_sale = False
             purchased_item_object.save()
             messages.success(request=request,
-                             message=f'Congratulations! You just bought {purchased_item_object} for {purchased_item_object.price}')
+                             message=f'Congratulations! You just bought \
+                             {purchased_item_object} for \
+                             {purchased_item_object.price}')
         return redirect('items')
 
 
@@ -51,7 +53,9 @@ def my_itemspage(request):
             item_for_sale_object.is_for_sale = True
             item_for_sale_object.save()
             messages.success(request=request,
-                             message=f'Congratulations! You just bought {item_for_sale_object.name} for {item_for_sale_object.price}')
+                             message=f'Congratulations! \
+                             You just bought {item_for_sale_object.name} \
+                             for {item_for_sale_object.price}')
         return redirect('my-items')
 
 
@@ -65,15 +69,15 @@ def loginpage(request):
         if user is not None:
             login(request=request, user=user)
             return redirect('items')
-        else:
-            return redirect('login')
+
+        return redirect('login')
 
 
 def logoutpage(request):
     logout(request=request)
     messages.success(
         request=request,
-        message=f'You have been logged out')
+        message='You have been logged out')
     return redirect('home')
 
 
@@ -93,7 +97,7 @@ def registerpage(request):
                 request=request,
                 message=f'You have registered your account successfully! Logged in as {username}')
             return redirect('home')
-        else:
-            messages.error(request=request,
+
+        messages.error(request=request,
                            message=form.errors)
-            return redirect('register')
+        return redirect('register')

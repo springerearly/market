@@ -14,4 +14,4 @@ class Item(models.Model):
     is_for_sale = BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
