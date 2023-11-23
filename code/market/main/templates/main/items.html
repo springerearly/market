@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 {% block title_block %}
     {% translate "Market" %} - {% translate "Items" %}
 {% endblock %}
@@ -36,7 +37,10 @@
                 <th scope="row">{{ item.pk }}</th>
                 <td>{{ item.name }}</td>
                 <td>
-                    <img alt="image" style="width:64px" src="{{ item.image_url }}">
+                    {% with image_static=item.image_url %}
+                    <img alt="image" style="width:64px" src="{% static image_static %}">
+                    {% endwith %}
+                    
                 </td>
                 <td>{{ item.price }}</td>
                 {% if items_page %}

@@ -14,4 +14,4 @@ class Item(models.Model):
     is_for_sale = BooleanField(default=True)
 
     def __str__(self):
-        return str(self.name)
+        return f"{str(self.name)}, {str(self.image_url)}"

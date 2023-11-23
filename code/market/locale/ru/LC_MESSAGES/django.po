@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 18:15+0700\n"
+"POT-Creation-Date: 2023-11-23 12:02+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,14 +20,20 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: .\main\templates\main\add_item.html:4 .\main\templates\main\home.html:9
+#: .\main\templates\main\items.html:4 .\templates\includes\navbar.html:4
+msgid "Market"
+msgstr "Интернет-магазин"
+
+#: .\main\templates\main\add_item.html:4 .\main\templates\main\add_item.html:8
+#: .\main\templates\main\add_item.html:10 .\templates\includes\navbar.html:13
+msgid "__add_item__"
+msgstr "Добавить товар"
+
+
 #: .\main\templates\main\home.html:4
 msgid "Market - Home page"
-msgstr "Барахолка - Главная страница"
-
-#: .\main\templates\main\home.html:9 .\main\templates\main\items.html:4
-#: .\templates\includes\navbar.html:4
-msgid "Market"
-msgstr "Барахолка"
+msgstr "Интернет-магазин - Главная страница"
 
 #: .\main\templates\main\home.html:10
 msgid "Start purchasing products by clicking the link below"
@@ -42,7 +48,7 @@ msgstr "Начать"
 msgid "Items"
 msgstr "Товары"
 
-#: .\main\templates\main\items.html:10 .\templates\includes\navbar.html:13
+#: .\main\templates\main\items.html:10 .\templates\includes\navbar.html:14
 msgid "My Items"
 msgstr "Мои товары"
 
@@ -91,7 +97,7 @@ msgid "_not_for_sale"
 msgstr "Не продается"
 
 #: .\main\templates\main\login.html:5 .\main\templates\main\register.html:42
-#: .\templates\includes\navbar.html:17
+#: .\templates\includes\navbar.html:18
 msgid "Login"
 msgstr "Войти"
 
@@ -118,7 +124,7 @@ msgid "Dont Have an account?"
 msgstr "Еще нет аккаунта?"
 
 #: .\main\templates\main\login.html:29 .\main\templates\main\register.html:4
-#: .\templates\includes\navbar.html:18
+#: .\templates\includes\navbar.html:19
 msgid "register"
 msgstr "Регистрация"
 
@@ -188,10 +194,14 @@ msgstr "Подтвердить"
 msgid "Home"
 msgstr "На главную"
 
-#: .\templates\includes\navbar.html:14
+#: .\templates\includes\navbar.html:15
 msgid "Hello"
 msgstr "Привет"
 
-#: .\templates\includes\navbar.html:15
+#: .\templates\includes\navbar.html:16
 msgid "Logout"
 msgstr "Выйти"
+
+#: .\templates\main\add_item.html:29
+msgid "filename"
+msgstr "Имя файла"

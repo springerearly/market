@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 from main.models import Item
+
+storage = FileSystemStorage(location='static/pics')
 
 
 # Create your views here.
@@ -57,6 +60,21 @@ def my_itemspage(request):
                              You just bought {item_for_sale_object.name} \
                              for {item_for_sale_object.price}')
         return redirect('my-items')
+    
+def add_itempage(request):
+    if request.method == 'GET':
+        return render(request=request, template_name='main/add_item.html')
+    if request.method == 'POST':
+        file = request.FILES['file']
+        filename = storage.save(file.name, file)
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        description = request.POST.get('description')
+        owner = request.user
+        new_item = Item(name=name, price=price, description=description, owner=owner, image_url = f"pics/{filename}", is_for_sale=False)
+        print("User: ", owner, "Item: ", new_item)
+        new_item.save()
+        return redirect('items')
 
 
 def loginpage(request):
