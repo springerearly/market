@@ -85,3 +85,29 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="Modal-DeleteItem{{ item.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{% translate "__are_you_sure_you_want_to_delete__" %} {{ item.name }} ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/delete-item/" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="item-for-delete-id" value="{{ item.pk }}">
+                    <h6 class="text-center">
+                        {% translate "__by_clicking_delete__" %}
+                    </h6>
+                    <br>
+                    <button type="submit" class="btn btn-outline-success btn-block">{% translate "_confirm_" %}</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate "Close" %}</button>
+            </div>
+        </div>
+    </div>
+</div>

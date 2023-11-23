@@ -1,11 +1,19 @@
+import shutil
+import os
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 from main.models import Item
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 storage = FileSystemStorage(location='static/pics')
+
 
 
 # Create your views here.
@@ -35,7 +43,20 @@ def itemspage(request):
                              {purchased_item_object} for \
                              {purchased_item_object.price}')
         return redirect('items')
+    
+def delete_itempage(request):
+    if request.method == 'POST':
+        id = request.POST.get('item-for-delete-id')
+        deleteing_item = Item.objects.get(id=id)
+        filename = deleteing_item.image_url
+        if storage.exists(os.path.basename(filename)):
+            print(filename)
+            os.remove(BASE_DIR / "static" / filename)
+        deleteing_item.delete()
 
+        return redirect('my-items')
+    
+    
 
 def my_itemspage(request):
     if request.method == 'GET':
@@ -61,6 +82,7 @@ def my_itemspage(request):
                              for {item_for_sale_object.price}')
         return redirect('my-items')
     
+
 def add_itempage(request):
     if request.method == 'GET':
         return render(request=request, template_name='main/add_item.html')
@@ -72,7 +94,6 @@ def add_itempage(request):
         description = request.POST.get('description')
         owner = request.user
         new_item = Item(name=name, price=price, description=description, owner=owner, image_url = f"pics/{filename}", is_for_sale=False)
-        print("User: ", owner, "Item: ", new_item)
         new_item.save()
         return redirect('items')
 

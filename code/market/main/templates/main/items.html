@@ -32,7 +32,6 @@
         </thead>
         <tbody>
         {% for item in items %}
-
             <tr>
                 <th scope="row">{{ item.pk }}</th>
                 <td>{{ item.name }}</td>
@@ -60,6 +59,10 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#Modal-PutupForSale{{ item.pk }}">
                             {% translate "Put up for sale" %}
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#Modal-DeleteItem{{ item.pk }}">
+                            {% translate "DeleteItem" %}
                         </button>
                     {% endif %}
                     {% include 'includes/items_modals.html' %}
