@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-23 17:00+0700\n"
+"POT-Creation-Date: 2023-12-03 22:59+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,10 @@ msgstr "Вы уверены, что хотите продать"
 msgid "costs"
 msgstr "стоит"
 
+#: .\templates\includes\items_modals.html:63
+msgid "currency"
+msgstr "₽"
+
 #: .\templates\includes\items_modals.html:67
 msgid "By clicking Confirm, you will put this item up for sale in the market"
 msgstr "Нажав «Подтвердить», вы выставите этот товар на продажу в магазине"
@@ -203,7 +207,6 @@ msgid "_confirm_"
 msgstr "Подтвердить"
 
 #: .\templates\includes\items_modals.html:94
-#| msgid "you_sure_you_want_to_delete__"
 msgid "__are_you_sure_you_want_to_delete__"
 msgstr "Вы уверены, что хотите удалить товар"
 

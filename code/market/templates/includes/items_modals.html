@@ -30,7 +30,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     <h4 class="text-center">
-                        {{ item.name }} costs {{ item.price }}$
+                        {{ item.name }} {% translate "costs" %} {{ item.price }} {% translate "currency" %}
                     </h4>
                     <br>
                     <h6 class="text-center">
@@ -60,7 +60,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     <h4 class="text-center">
-                        {{ item.name }} {% translate "costs" %} {{ item.price }}$
+                        {{ item.name }} {% translate "costs" %} {{ item.price }} {% translate "currency" %}
                     </h4>
                     <br>
                     <h6 class="text-center">
